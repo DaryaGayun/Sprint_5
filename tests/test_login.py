@@ -1,5 +1,4 @@
 ﻿from conftest import *
-from user_generator import *
 
 class TestLogin:
     

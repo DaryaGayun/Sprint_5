@@ -1,29 +1,22 @@
 ﻿import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import StellarBurgersLocators as Locators
-import random
-import string
+from helpers.user_generator import *
 
 BASE_URL = "https://stellarburgers.education-services.ru"
 
-def generate_unique_email():
-    return f"user_{random.randint(10000, 99999)}@test.ru"
-
-def generate_password(length=6):
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
-
-def generate_name(length=6):
-    return ''.join(random.choices(string.ascii_letters, k=length))
-
-def pytest_addoption(parser):
-    parser.addoption("--browser", action="store", default="chrome")
+# webdriver-manager не требуется в новых версиях Selenium (ниже ссылка на доку)
+# https://www.selenium.dev/selenium/docs/api/py/index.html#drivers
+# ...
+# In older versions of Selenium, it was necessary to install and manage these drivers yourself.
+# ...
+# Modern versions of Selenium handle browser and driver installation for you with Selenium Manager.
+# ....
 
 @pytest.fixture
 def browser(request):
