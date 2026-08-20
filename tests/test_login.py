@@ -1,12 +1,5 @@
-﻿import sys
-import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from locators import StellarBurgersLocators as Locators
-
-BASE_URL = "https://stellarburgers.education-services.ru"
+﻿from conftest import *
+from user_generator import *
 
 class TestLogin:
     
