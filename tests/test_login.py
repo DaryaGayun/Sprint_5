@@ -19,7 +19,6 @@ class TestLogin:
         browser.find_element(*Locators.LOGIN_BUTTON).click()
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located(Locators.PLACE_ORDER_BUTTON))
         assert browser.current_url == BASE_URL + "/"
-        print("Вход через главную кнопку")
     
     def test_login_from_personal_account_button(self, browser, register_user):
         browser.get(BASE_URL)
@@ -30,7 +29,6 @@ class TestLogin:
         browser.find_element(*Locators.LOGIN_BUTTON).click()
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located(Locators.PLACE_ORDER_BUTTON))
         assert browser.current_url == BASE_URL + "/"
-        print("Вход через личный кабинет")
     
     def test_login_from_registration_page(self, browser, register_user):
         browser.get(f"{BASE_URL}/register")
@@ -41,7 +39,6 @@ class TestLogin:
         browser.find_element(*Locators.LOGIN_BUTTON).click()
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located(Locators.PLACE_ORDER_BUTTON))
         assert browser.current_url == BASE_URL + "/"
-        print("Вход со страницы регистрации")
     
     def test_login_from_forgot_password_page(self, browser, register_user):
         browser.get(f"{BASE_URL}/forgot-password")
@@ -52,4 +49,3 @@ class TestLogin:
         browser.find_element(*Locators.LOGIN_BUTTON).click()
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located(Locators.PLACE_ORDER_BUTTON))
         assert browser.current_url == BASE_URL + "/"
-        print("Вход со страницы восстановления")

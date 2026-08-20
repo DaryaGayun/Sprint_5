@@ -21,7 +21,6 @@ class TestRegistration:
         
         WebDriverWait(browser, 10).until(EC.visibility_of_element_located(Locators.LOGIN_BUTTON))
         assert "login" in browser.current_url
-        print("Успешная регистрация!")
     
     def test_registration_error_short_password(self, browser, user_data):
         browser.get(f"{BASE_URL}/register")
@@ -34,4 +33,3 @@ class TestRegistration:
         
         error = WebDriverWait(browser, 10).until(EC.visibility_of_element_located(Locators.REGISTRATION_ERROR))
         assert "Некорректный пароль" in error.text
-        print("Ошибка для короткого пароля!")
